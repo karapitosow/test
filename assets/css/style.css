@@ -1,22 +1,22 @@
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    margin: 0;   /*обнуляем во всём бади отступы*/
+    font-family: 'Montserrat', sans-serif; /*делаем шрифт по умолчанию*/
 
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 15px; /*размер шрифта*/
+    line-height: 1.6; /*межстрочные отступы*/
     color: #333;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
+    box-sizing: border-box; /*расчёт происходит с учётом бордеров*/
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
-
+/*линия для футера*/
 hr {
     display: block;
     width: 100%;
@@ -27,19 +27,20 @@ hr {
     background-color: #e5e5e5;
 }
 
-
+/*Разобраться с абсолютами, настроить паралакс*/
 /* Page */
 .page {
-    overflow: hidden;
+    overflow: hidden; /*прячем всё что выходит за границы объекта*/
 }
 
 
 /* Container */
 .container {
-    width: 100%;
-    max-width: 1230px;
+    width: 100%; /*контейнер занимает всю допустимую ширину*/
+    max-width: 1230px; /*максимально допустимая ширина контейнера*/
+    /*почитать дополнительно про ширину и макс ширину*/
     padding: 0 15px;
-    margin: 0 auto;
+    margin: 0 auto; /*устанавливаем контейнер по центру страницы, обязательным условием является указанные размеры*/
 }
 
 
@@ -47,16 +48,16 @@ hr {
 /* Intro */
 .intro {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; /*удобная штука, выстраивает объекты в колонну*/
+    justify-content: center; /*выравнивание по центру*/
     width: 100%;
-    height: 100vh;
+    height: 100vh; /*vh- захват видимого экрана, 100vh вытягивает на фул экран содержимое*/
     min-height: 820px;
-    position: relative;
+    position: relative; /*указываем родительский контейнер, относительно которого будем двигать абсолют*/
 
-    background: url("../images/intro.jpg") center no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
+    background: url("../images/intro.jpg") center no-repeat; /*для того что бы при скроле не повторялась картинка*/
+    -webkit-background-size: cover; /*как я понял, это для поддержки другими браузерами*/
+    background-size: cover; /*на весь контейнер*/
 }
 
 .intro__inner {
@@ -64,17 +65,17 @@ hr {
     max-width: 880px;
     margin: 0 auto;
 
-    text-align: center;
+    text-align: center; /*текст в объекте по центру*/
 }
 
 .intro__title {
     color: #fff;
     font-size: 100px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 700;  /*жирность шрифта*/
+    text-transform: uppercase; /*все буквы болшими*/
     line-height: 1;
 }
-
+/*совсем не понял как это делать, скинул себе, так как смотрится прикольно афтерами нужно заняться, тема здравая*/
 .intro__title:after {
     content: "";
     display: block;
@@ -86,7 +87,7 @@ hr {
 }
 
 .intro__suptitle {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /*отступ снизу*/
 
     font-family: 'Kaushan Script', cursive;
     font-size: 72px;
@@ -97,19 +98,19 @@ hr {
 /* Header */
 .header {
     width: 100%;
-    padding-top: 30px;
+    padding-top: 30px; /*отступ внутырь сверху*/
 
-    position: absolute;
-    top: 0;
+    position: absolute; /*меняем позицию в любое положения контейнера родительского*/
+    top: 0; /*прилипалки*/
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1000; /*по оси  z меняем позицию, в данном случае она на первом плане*/
 }
-
+ /*повторил, но не понял суть фиксед*/
 .header.fixed {
     padding: 10px 0;
 
-    background-color: #EA2B2B;
+    background-color: #EA2B2B; 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 
     position: fixed;
@@ -123,7 +124,7 @@ hr {
 .header.active {
     background-color: #eb8b8d;
 }
-
+/*особенность флекса-выравнивание текста по центру и по середине*/
 .header__inner {
     display: flex;
     justify-content: space-between;
@@ -144,7 +145,7 @@ hr {
 }
 
 .nav__link {
-    display: inline-block;
+    display: inline-block; /*пока не понял разницы*/
     vertical-align: top;
     font-weight: bold;
     margin: 0 15px;
@@ -152,11 +153,11 @@ hr {
     padding-left: 10px;
     padding-right: 10px;
     color: #fff;
-    text-decoration: none;
+    text-decoration: none; /*убираем декор*/
 
-    transition: color .1s linear;
+    transition: color .1s linear; /*длина эффекта*/
 }
-
+ /*тот эе афтер*/
 .nav__link:after {
     content: "";
     display: block;
@@ -164,7 +165,7 @@ hr {
     height: 3px;
 
     background-color: #fce38a;
-    opacity: 0;
+    opacity: 0; /*что то на подобие прозрачности, так мы прячем объект*/
 
     position: absolute;
     top: 100%;
@@ -193,14 +194,14 @@ hr {
 .nav-toggle {
     width: 30px;
     padding: 10px 0;
-    display: none;
+    display: none; /*не понятно с дисплеями*/
 
     font-size: 0;
-    color: transparent;
+    color: transparent; /*наследование*/ 
 
     border: 0;
     background: none;
-    cursor: pointer;
+    cursor: pointer; /*при наведении курсора выходит пальчик*/
 
     position: absolute;
     top: 24px;
@@ -209,7 +210,7 @@ hr {
 }
 
 .nav-toggle:focus {
-    outline: 0;
+    outline: 0; /*подчёркивание*/
 }
 
 .nav-toggle__item {
@@ -267,7 +268,7 @@ hr {
 }
 
 
-/*btn----------------------------------------*/
+/*btn------------------суть уловил, но пока что сам такое не повторю----------------------*/
 
 .button {
     position: relative;
@@ -304,7 +305,7 @@ hr {
 .button:hover .button__line--top {
     left: 100%;
     transition: 1s;
-    transition-delay: 0.25s;
+    transition-delay: 0.25s; /*задержка*/
 }
 
 .button__line--botton {
@@ -368,7 +369,7 @@ hr {
     background-color: #f8f8f8;
 }
 
-.section--clients {
+.section--gover {
     background: #f5f5f5 url("../images/clients-bg.jpg") center no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
@@ -705,21 +706,21 @@ hr {
 
 
 
-/* Clients */
-.clients {
+/* gover */
+.gover {
     display: flex;
     flex-wrap: wrap;
     margin-top: 70px;
 }
 
-.clients__item {
+.gover__item {
     width: 50%;
     padding: 0 45px 0 175px;
     position: relative;
     margin-bottom: 60px;
 }
 
-.clients__photo {
+.gover__photo {
     width: 110px;
     height: 110px;
 
@@ -731,7 +732,7 @@ hr {
     z-index: 1;
 }
 
-.clients__name {
+.gover__name {
     margin-bottom: 5px;
 
     font-size: 14px;
@@ -739,19 +740,19 @@ hr {
     text-transform: uppercase;
 }
 
-.clients__prof {
+.gover__prof {
     font-size: 15px;
     color: #fff;
     font-style: italic;
     font-weight: 300;
 }
 
-.clients__text {
+.gover__text {
     font-size: 15px;
     color: #fff;
 }
 
-.clients__text:before {
+.gover__text:before {
     content: "";
     display: block;
     width: 60px;
@@ -1188,18 +1189,18 @@ hr {
         padding-left: 175px;
     }
 
-    /* Clients */
-    .clients {
+    /* gover */
+    .gover {
         max-width: 600px;
         margin: 0 auto;
     }
 
-    .clients__item {
+    .gover__item {
         width: 100%;
         padding-right: 0;
     }
 
-    .clients__item:last-child {
+    .gover__item:last-child {
         margin-bottom: 0;
     }
 
@@ -1469,17 +1470,17 @@ hr {
     }
 
 
-    /* Clients */
-    .clients__photo {
+    /* gover */
+    .gover__photo {
         position: static;
     }
 
-    .clients__item {
+    .gover__item {
         padding-left: 0;
         text-align: center;
     }
 
-    .clients__text:before {
+    .gover__text:before {
         margin: 15px auto;
     }
 
